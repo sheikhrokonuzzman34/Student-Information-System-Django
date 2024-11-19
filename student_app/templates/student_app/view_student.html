@@ -1,0 +1,34 @@
+{% extends 'student_app/base.html' %}
+
+{% block content %}
+<h2>View Student</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+{% if student %}
+<div class="mt-4">
+    <h3>Student Information</h3>
+    <table class="table">
+        <tr>
+            <th>Student ID</th>
+            <td>{{ student.student_id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ student.name }}</td>
+        </tr>
+        <tr>
+            <th>Class</th>
+            <td>{{ student.class_name }}</td>
+        </tr>
+        <tr>
+            <th>Teacher</th>
+            <td>{{ student.teacher_name }}</td>
+        </tr>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
