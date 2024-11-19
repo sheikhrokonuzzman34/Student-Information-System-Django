@@ -63,7 +63,6 @@ def delete_student(request, student_id):
         return redirect('student_list')
     return render(request, 'student_app/delete_student.html', {'student': student})
 
-@login_required
 def student_list(request):
     students = Student.objects.all()
     return render(request, 'student_app/student_list.html', {'students': students})
